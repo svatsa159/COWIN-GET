@@ -18,5 +18,6 @@ for session in data['centers']['sessions']:
     if(session['min_age_limit']==18):
         available_dose_count+=int(session['available_capacity_dose1'])
 
-print("18+ Available Doses in Apollo - "+ str(available_dose_count))
-print("Total Available Doses in Apollo - "+ str(total_available_dose_count))
+if(available_dose_count>0):
+    print("18+ Available Doses in Apollo - "+ str(available_dose_count))
+    print("Total Available Doses in Apollo - "+ str(total_available_dose_count))
