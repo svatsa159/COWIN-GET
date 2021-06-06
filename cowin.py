@@ -11,9 +11,12 @@ response = urlopen(url)
 data = json.loads(response.read())
 
 available_dose_count = 0
+total_available_dose_count = 0
 
 for session in data['centers']['sessions']:
+    total_available_dose_count+=(int(session['available_capacity']))
     if(session['min_age_limit']==18):
         available_dose_count+=int(session['available_capacity_dose1'])
 
-print("Available Doses in Apollo - "+ str(available_dose_count))
+print("18+ Available Doses in Apollo - "+ str(available_dose_count))
+print("Total Available Doses in Apollo - "+ str(total_available_dose_count))
